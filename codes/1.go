@@ -61,10 +61,26 @@ func main() {
 	// )
 	// fmt.Println(Sunday, Monday, Tuesday)
 
-	//复合字面值简化赋值
-	var a [2]int
-	a[0] = 1
-	a[1] = 2
-	var b = [2]int{1, 2}
-	fmt.Println(a, b)
+	// //复合字面值简化赋值
+	// var a [2]int
+	// a[0] = 1
+	// a[1] = 2
+	// var b = [2]int{1, 2}
+	// fmt.Println(a, b)
+
+	//切片
+	// Go语言中传递数组是纯粹的值拷贝
+	// 切片之于数组就像是文件描述符之于文件，避免性能损耗
+	s := make([]byte, 5)
+	fmt.Println(s) //自动创建对应的底层数组
+
+	u := [10]byte{1, 2, 3, 4}
+	us := u[1:9] //[low: high], high不包含
+	fmt.Println(us)
+	us[0] = 22
+
+	fmt.Println(u)
+	fmt.Println(us) //引用，一起改变
+	uss := us[1:3]  //再切片 reslicing
+	fmt.Println(uss)
 }
