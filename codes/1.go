@@ -71,16 +71,63 @@ func main() {
 	//切片
 	// Go语言中传递数组是纯粹的值拷贝
 	// 切片之于数组就像是文件描述符之于文件，避免性能损耗
-	s := make([]byte, 5)
-	fmt.Println(s) //自动创建对应的底层数组
+	// s := make([]byte, 5)
+	// fmt.Println(s) //自动创建对应的底层数组
 
-	u := [10]byte{1, 2, 3, 4}
-	us := u[1:9] //[low: high], high不包含
-	fmt.Println(us)
-	us[0] = 22
+	// u := [10]byte{1, 2, 3, 4}
+	// us := u[1:9] //[low: high], high不包含
+	// fmt.Println(us)
+	// us[0] = 22
 
-	fmt.Println(u)
-	fmt.Println(us) //引用，一起改变
-	uss := us[1:3]  //再切片 reslicing
-	fmt.Println(uss)
+	// fmt.Println(u)
+	// fmt.Println(us) //引用，一起改变
+	// uss := us[1:3]  //再切片 reslicing
+	// fmt.Println(uss)
+
+	// var s []int
+	// fmt.Println(len(s), cap(s)) //0 0
+	// s = append(s, 11)
+	// fmt.Println(len(s), cap(s)) //1 1
+	// s = append(s, 12)
+	// fmt.Println(len(s), cap(s)) //2 2
+	// s = append(s, 12)
+	// fmt.Println(len(s), cap(s)) //3 4 ，动态扩容，分配新数组，绑定底层数组会更换
+	// s = append(s, 14)
+	// fmt.Println(len(s), cap(s))
+	// s = append(s, 15)
+	// fmt.Println(len(s), cap(s))
+	// //动态扩容，也会导致性能问题，建议再分配切片时指定容量
+	// s1 := make([]int, 1, 10)
+	// fmt.Println(len(s1), cap(s1))
+
+	// Map
+	// 无序键值对，value没有限制，key必须时实现==和!=的类型，
+	// var m map[string]int
+	// m["key"] = 1 //map不是零值可用的,panic: assignment to entry in nil map
+	//Map声明、赋值
+	var m1 = map[int]int{
+		1: 1,
+		2: 2,
+		3: 3,
+	}
+	// fmt.Println(m1)
+	// var m2 = make(map[int]int)
+	// m2[1] = 1
+	// m2[2] = 2
+	// fmt.Println(m2)
+	// // len
+	// fmt.Println(len(m1), len(m2))
+	// // get value
+	// fmt.Println(m2[1])
+	// // delete
+	// delete(m2, 1)
+	// fmt.Println(m2)
+
+	// delete(m2, 3) // 3不存在，但不会报错
+	// fmt.Println(m2)
+	//遍历
+	for k, v := range m1 {
+		fmt.Println(k, v) //遍历次序不能保证
+	}
+
 }
