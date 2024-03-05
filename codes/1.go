@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	fmt.Println("hello world")
@@ -105,11 +108,11 @@ func main() {
 	// var m map[string]int
 	// m["key"] = 1 //map不是零值可用的,panic: assignment to entry in nil map
 	//Map声明、赋值
-	var m1 = map[int]int{
-		1: 1,
-		2: 2,
-		3: 3,
-	}
+	// var m1 = map[int]int{
+	// 	1: 1,
+	// 	2: 2,
+	// 	3: 3,
+	// }
 	// fmt.Println(m1)
 	// var m2 = make(map[int]int)
 	// m2[1] = 1
@@ -126,8 +129,24 @@ func main() {
 	// delete(m2, 3) // 3不存在，但不会报错
 	// fmt.Println(m2)
 	//遍历
-	for k, v := range m1 {
-		fmt.Println(k, v) //遍历次序不能保证
-	}
+	// for k, v := range m1 {
+	// 	fmt.Println(k, v) //遍历次序不能保证
+	// }
+
+	// 	// string
+	// 	//不可变
+	// 	//零值可用
+	// 	var s string
+	// 	fmt.Println("s=" + s + ",")
+	// 	multileLine := `line1
+	// line2
+	// line3`
+	// 	fmt.Println(multileLine)
+
+	//string builder
+	var b strings.Builder
+	b.WriteString("line1")
+	b.WriteString("line2")
+	fmt.Println(b.String())
 
 }
