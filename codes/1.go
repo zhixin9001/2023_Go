@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello world")
 
 	// // 变量声明
 	// var a int32
@@ -23,8 +22,24 @@ func main() {
 	// var g float32
 	// fmt.Println(a, b, c, d, e, f, g)
 
-	var a = 1
-	b := 2
-	c := int32(3)
-	fmt.Println(a, b, c)
+	// var a = 1
+	// b := 2
+	// c := int32(3)
+	// fmt.Println(a, b, c)
+
+	const ( //无类型常量
+		A = 0
+		B = 1
+		C = 2
+	)
+	// fmt.Println(A, B, C)
+
+	type myInt int
+	var a = int(5)
+	var b = myInt(6)
+	//fmt.Println(a + b) // 不支持隐式转换
+	fmt.Println(a + int(b))
+
+	fmt.Println(a + B) // 无类型常量的好处，不需要转换
+
 }
