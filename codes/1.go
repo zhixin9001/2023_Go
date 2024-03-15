@@ -28,6 +28,20 @@ func main() {
 	// c := int32(3)
 	// fmt.Println(a, b, c)
 
+	const ( //无类型常量
+		A = 0
+		B = 1
+		C = 2
+	)
+	// fmt.Println(A, B, C)
+
+	type myInt int
+	var a = int(5)
+	var b = myInt(6)
+	//fmt.Println(a + b) // 不支持隐式转换
+	fmt.Println(a + int(b))
+
+	fmt.Println(a + B) // 无类型常量的好处，不需要转换
 	// const (
 	// 	A, B = 1, 2
 	// 	C, D
