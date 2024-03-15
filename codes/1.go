@@ -1,12 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	fmt.Println("hello world")
+	// 	fmt.Println("hello world")
 
 	// // 变量声明
 	// var a int32
@@ -143,10 +140,83 @@ func main() {
 	// line3`
 	// 	fmt.Println(multileLine)
 
-	//string builder
-	var b strings.Builder
-	b.WriteString("line1")
-	b.WriteString("line2")
-	fmt.Println(b.String())
+	// //string builder
+	// var b strings.Builder
+	// b.WriteString("line1")
+	// b.WriteString("line2")
+	// fmt.Println(b.String())
 
+	// break只跳出当前层级
+	// exit := make(chan interface{})
+
+	// go func() {
+	// 	for {
+	// 		select {
+	// 		case <-time.After(time.Second):
+	// 			fmt.Println("tick")
+	// 		case <-exit:
+	// 			fmt.Println("exiting...") //只跳出select,而不是for
+	// 			break
+	// 		}
+	// 	}
+	// 	fmt.Println("exit!")
+	// }()
+
+	// time.Sleep(3 * time.Second)
+	// exit <- struct{}{}
+
+	// // wait child goroutine exit
+	// time.Sleep(3 * time.Second)
+
+	// // break需要配合loop使用
+	// exit := make(chan interface{})
+
+	// go func() {
+	// loop:
+	// 	for {
+	// 		select {
+	// 		case <-time.After(time.Second):
+	// 			fmt.Println("tick")
+	// 		case <-exit:
+	// 			fmt.Println("exiting...")
+	// 			break loop
+	// 		}
+	// 	}
+	// 	fmt.Println("exit!")
+	// }()
+
+	// time.Sleep(3 * time.Second)
+	// exit <- struct{}{}
+
+	// // 等待子goroutine退出
+	// time.Sleep(3 * time.Second)
+
+	// fallthrough与case表达式列表
+	n := 1
+	// switch n {
+	// case 1:
+	// 	fallthrough
+	// case 3:
+	// 	fallthrough
+	// case 5:
+	// 	fallthrough
+	// case 7:
+	// 	fmt.Println("odd")
+	// case 2:
+	// 	fallthrough
+	// case 4:
+	// 	fallthrough
+	// case 6:
+	// 	fallthrough
+	// case 8:
+	// 	fmt.Println("even")
+	// }
+
+	//更推荐的写法
+	switch n {
+	case 1, 3, 5, 7:
+		fmt.Println("odd")
+	case 2, 4, 6, 8:
+		fmt.Println("even")
+	}
 }
